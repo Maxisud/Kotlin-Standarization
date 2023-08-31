@@ -30,6 +30,80 @@ NamaAplikasi
 ```
 
 
+---
+
+## Getting Started
+
+Selamat datang di bagian "Getting Started"! Di sini, Anda akan diperkenalkan dengan langkah-langkah awal untuk memulai pengembangan aplikasi Android dengan Kotlin sesuai dengan standar yang telah ditetapkan.
+
+### 1. Persiapan Lingkungan Pengembangan
+
+Sebelum memulai, pastikan Anda memiliki:
+
+- [Android Studio](https://developer.android.com/studio) versi terbaru.
+- JDK 8 atau yang lebih baru.
+- Emulator Android atau perangkat fisik untuk pengujian.
+
+### 2. Membuat Proyek Baru
+
+Buka Android Studio, lalu:
+
+1. Pilih `Start a new Android Studio project`.
+2. Masukkan nama aplikasi, pilih lokasi penyimpanan, dan tentukan bahasa pemrograman sebagai `Kotlin`.
+3. Pilih template awal yang sesuai dengan kebutuhan Anda, misalnya `Empty Activity`.
+4. Klik `Finish` untuk membuat proyek.
+
+### 3. Struktur Proyek
+
+Setelah proyek dibuat, pastikan struktur direktori Anda sesuai dengan yang disarankan:
+
+```
+NamaAplikasi
+  ├──.gradle
+  ├──app
+  │ ├──src
+  │ │ ├──main
+  │ │ │ ├──java
+  │ │ │ │  ├── model
+  │ │ │ │  ├── view
+  │ │ │ │  ├── viewModel
+  │ │ ├──androidTest
+  │ ├──build.gradle
+  ├──README.md
+```
+
+### 4. Penambahan Dependensi
+
+Tambahkan dependensi yang diperlukan ke dalam file `build.gradle`:
+
+```kotlin
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Tambahkan dependensi lainnya di sini
+}
+```
+
+### 5. Konfigurasi Kotlin
+
+Pastikan Anda menggunakan fitur terbaru dari Kotlin dengan menambahkan konfigurasi berikut ke `build.gradle`:
+
+```kotlin
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+```
+
+### 6. Mulai Koding!
+
+Dengan lingkungan pengembangan yang sudah disiapkan dan konfigurasi dasar yang sudah dilakukan, Anda siap untuk mulai mengembangkan aplikasi Anda dengan Kotlin sesuai dengan standar yang telah ditetapkan.
+
+
 ## Pedoman Penulisan Kode
 ### Penamaan
 - Gunakan camelCase untuk nama variabel dan fungsi.
