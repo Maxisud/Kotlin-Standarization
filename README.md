@@ -63,4 +63,75 @@ companion object{
 ### Version Control
 - Gunakan Git sebagai sistem kontrol versi utama.
 
+## Dependensi & Manajemen Pustaka
+### Gradle
+- Gunakan [Gradle](https://gradle.org/) sebagai alat manajemen dependensi utama.
+- Pastikan untuk selalu memperbarui semua dependensi ke versi stabil terbaru.
+- Hindari penggunaan pustaka yang sudah tidak didukung atau jarang diperbarui.
 
+## Keselamatan & Keamanan
+### Penyimpanan Data Lokal
+- Gunakan `SharedPreferences` dengan mode `MODE_PRIVATE` untuk menyimpan data sederhana.
+```kotlin
+val sharedPref = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+val editor = sharedPref.edit()
+editor.putString("key", "value")
+editor.apply()
+```
+
+### Enkripsi Data
+- Gunakan `EncryptedSharedPreferences` untuk menyimpan data sensitif.
+```kotlin
+val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+val sharedPreferences = EncryptedSharedPreferences.create(
+    "secret_shared_prefs",
+    masterKeyAlias,
+    context,
+    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+)
+```
+
+## Responsif & Adaptabilitas
+### Mendukung Multi Bahasa
+- Gunakan `strings.xml` untuk mendefinisikan string dan buat variasi berdasarkan bahasa.
+```xml
+<!-- dalam res/values/strings.xml -->
+<string name="welcome_message">Welcome</string>
+
+<!-- dalam res/values-id/strings.xml -->
+<string name="welcome_message">Selamat datang</string>
+```
+
+## Aksesibilitas
+### Content Descriptions
+- Tambahkan `contentDescription` untuk elemen UI yang interaktif.
+```kotlin
+val button = findViewById<Button>(R.id.my_button)
+button.contentDescription = "Tombol untuk melakukan sesuatu"
+```
+
+## Optimalisasi Kinerja
+### Menggunakan View Binding
+- Hindari `findViewById` dengan menggunakan View Binding.
+```kotlin
+val binding = ActivityMainBinding.inflate(layoutInflater)
+setContentView(binding.root)
+binding.myButton.text = "Tekan Saya"
+```
+
+## Proses Review
+### Menggunakan Linter
+- Gunakan `ktlint` atau `detekt` untuk memeriksa kualitas kode Kotlin.
+```bash
+$ ./gradlew ktlintCheck
+```
+
+## Integrasi & Pengiriman Terus Menerus (CI/CD)
+### Otomatisasi Build dengan Gradle
+- Gunakan task Gradle untuk otomatisasi build.
+```bash
+$ ./gradlew assembleDebug
+```
+
+---
